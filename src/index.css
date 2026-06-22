@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-darkBg: #05070f;
+  --color-darkCard: #0a0d18;
+  --color-primary: #10b981; /* Emerald/Green */
+  --color-secondary: #06b6d4; /* Cyan */
+  --color-accent: #22c55e;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* 
+=========================================
+  Custom Global Styles & Variables
+=========================================
+*/
+:root {
+  --bg-dots: rgba(16, 185, 129, 0.05); /* Green dots overlay */
+}
+
+/* Forced Dark Developer Theme */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #05070f;
+  color: #e2e8f0;
+  background-image: radial-gradient(var(--bg-dots) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+/* Code aesthetics */
+.code-font {
+  font-family: var(--font-mono);
+}
+
+/* Scroll Reveal Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #111827;
+  border-radius: 9999px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #10b981;
+}
+
+/* Terminal Cursor Blinking */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
+
+/* Floating animation */
+@keyframes float-badge {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-badge {
+  animation: float-badge 4s infinite alternate ease-in-out;
+}
+
+/* Scroll Mouse Wheel animation */
+@keyframes scroll-wheel-anim {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+}
+
+.animate-scroll-wheel {
+  animation: scroll-wheel-anim 1.5s infinite;
+}
+
+/* Text Gradient Utility (Neon Green/Cyan) */
+.text-gradient {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #10b981, #06b6d4, #3b82f6);
+}
+
+/* Section Title style base adjustments */
+.section-title {
+  @apply text-white;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background-image: linear-gradient(to right, #10b981, #06b6d4);
+  margin: 12px auto 0;
+  border-radius: 9999px;
+}
+
+/* Custom glow borders */
+.glow-border {
+  transition: all 0.3s ease;
+}
+.glow-border:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
